@@ -14,7 +14,7 @@
 
 package tcl.lang;
 
-class TclParse {
+public class TclParse {
 
 	/**
 	 *  The original command string passed to Parser.parseCommand.

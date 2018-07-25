@@ -11,7 +11,9 @@
 
 package tcl.lang;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * 	This class contains methods that parse Tcl scripts.  They
@@ -45,7 +47,7 @@ public class Parser {
 	 *         otherwise. If an error occurs and interp isn't null then an error message
 	 *         is left in its result. Side effects: None.
 	 */
-	static TclParse parseCommand(Interp interp, char[] script_array, 
+	public static TclParse parseCommand(Interp interp, char[] script_array,
 			int script_index, 
 			int numChars, 
 			String fileName, 
@@ -463,6 +465,20 @@ public class Parser {
 		
 		return (parseError == Parser.TCL_PARSE_SUCCESS);
 	}
+
+	public static List<TclParse> parseCommand(String script, boolean nested) {
+        CharPointer src = new CharPointer(script);
+		int len = script.length();
+		List<TclParse> tclParserResults = new ArrayList<TclParse>();
+
+		do {
+			TclParse parse = parseCommand(null, src.array, src.index, len, null, 0, nested);
+			tclParserResults.add(parse);
+			src.index = parse.commandStart + parse.commandSize;
+			parse.release(); // Release parser resources
+		} while (src.index < len);
+		return tclParserResults;
+    }
 
 	/*
 	 * ----------------------------------------------------------------------
