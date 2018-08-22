@@ -1,4 +1,4 @@
-JTcl - Tcl Language Interpreter in Java
+# JTcl - Tcl Language Interpreter in Java
 
 http://jtcl-project.github.io/jtcl/
 
@@ -8,7 +8,7 @@ only by API restrictions of the Java Virtual Machine.  JTcl is based on
 the Jacl interpreter (http://tcljava.sf.net)
 
 
-INSTALLING JTCL
+## INSTALLING JTCL
 
 JTcl requires a Java JVM 1.6 or higher.  You may have to install Java 
 if you don't already have it installed.  
@@ -28,14 +28,14 @@ in /usr/local/bin (or any other directory on your PATH of your choice):
     sudo ln -s `pwd`/jtcl /usr/local/bin
 
 
-LICENSE
+## LICENSE
 
 JTcl is licensed under BSD-style licenses by various copyright holders.  See 
 the license.* files in the binary distribution files, or review at:
 
     http://jtcl-project.github.io/jtcl/licenses.html
 
-SOURCE CODE
+## SOURCE CODE
 
 JTcl uses the Git distributed source code control system.  Install
 Git using your OS distribution package manager or get executables 
@@ -51,8 +51,12 @@ Sources to released versions can also be downloaded from:
 Download the jtcl-{version}-src.zip file and unzip into a directory 
 of your choice.
 
+### MAVEN
 
-DOCUMENTATION
+please edit the toolchains.xml template and copy it in your .m2 repository (~/.m2) before launching the maven build.
+
+
+## DOCUMENTATION
 
 Local documentation, which consists a copy of the the JTcl web site, can be 
 downloaded from:
@@ -64,7 +68,7 @@ jtcl-{version}-doc.zip file from the JTcl website, and unzip into a directory
 of your choice. 
 
 
-MAILING LIST and BUG REPORTING
+## MAILING LIST and BUG REPORTING
 
 Please subscribe and use the JTcl mailing list for questions and to
 share information.  The JTcl Bug tracker should be used to

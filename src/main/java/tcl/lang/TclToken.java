@@ -18,7 +18,7 @@
 
 package tcl.lang;
 
-class TclToken {
+public class TclToken {
 
 	// Contains an array the references the script from where the
 	// token originates from and an index to the first character
@@ -84,7 +84,7 @@ class TclToken {
 	 * ----------------------------------------------------------------------
 	 */
 
-	String getTokenString() {
+	public String getTokenString() {
 		final boolean debug = false;
 
 		if (debug && ((script_index + size) > script_array.length)) {
@@ -165,5 +165,24 @@ class TclToken {
 		return sbuf.toString();
 	}
 
+	public int getType() {
+		return type;
+	}
+
+	public int getScriptIndex() {
+		return script_index;
+	}
+
+	public char[] getScriptArray() {
+		return script_array;
+	}
+
+	public int getSize() {
+		return size;
+	}
+
+    public int getNumComponents() {
+		return numComponents;
+    }
 } // end TclToken
 

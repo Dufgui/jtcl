@@ -194,7 +194,7 @@ public class TclParse {
 	 * ----------------------------------------------------------------------
 	 */
 
-	final TclToken getToken(int index) // The index into tokenList.
+	public final TclToken getToken(int index) // The index into tokenList.
 	{
 		if (index >= tokensAvailable) {
 			expandTokenArray(index);
@@ -206,10 +206,22 @@ public class TclParse {
 		return tokenList[index];
 	}
 
+	public int getNumTokens(){
+		return numTokens;
+	}
+
+	public int getNumWords(){
+		return numWords;
+	}
+
+	public int getLineNum() {
+		return lineNum;
+	}
+
 	// Release internal resources that this TclParser object might have
 	// allocated
 
-	void release() {
+	public void release() {
 		// Release tokens in reverse order so that the newest
 		// (possibly just allocated with new) tokens are returned
 		// to the pool first.
@@ -268,7 +280,7 @@ public class TclParse {
 	 * expandTokenArray --
 	 * 
 	 * If the number of TclTokens in tokenList exceeds tokensAvailable, the
-	 * double the number number of available tokens, allocate a new array, and
+	 * double the number of available tokens, allocate a new array, and
 	 * copy all the TclToken over.
 	 * 
 	 * Results: None.
@@ -351,7 +363,7 @@ public class TclParse {
 	 * ----------------------------------------------------------------------
 	 */
 
-	TclObject get() {
+	public TclObject get() {
 		TclObject obj;
 		TclToken token;
 		String typeString;
@@ -432,5 +444,9 @@ public class TclParse {
 		}
 
 		return obj;
+	}
+
+	public String getFileName() {
+		return fileName;
 	}
 } // end TclParse

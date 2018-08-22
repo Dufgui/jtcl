@@ -1,4 +1,4 @@
-Janino - An embedded Java[TM] compiler
+Janino - An embedded Java[TM] interpreter
 
 Copyright (c) 2006, Arno Unkrig
 All rights reserved.

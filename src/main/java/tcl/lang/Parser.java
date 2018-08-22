@@ -466,16 +466,15 @@ public class Parser {
 		return (parseError == Parser.TCL_PARSE_SUCCESS);
 	}
 
-	public static List<TclParse> parseCommand(String script, boolean nested) {
+	public static List<TclParse> parseCommand(String script) {
         CharPointer src = new CharPointer(script);
 		int len = script.length();
 		List<TclParse> tclParserResults = new ArrayList<TclParse>();
 
 		do {
-			TclParse parse = parseCommand(null, src.array, src.index, len, null, 0, nested);
+			TclParse parse = parseCommand(null, src.array, src.index, len, null, 0, false);
 			tclParserResults.add(parse);
 			src.index = parse.commandStart + parse.commandSize;
-			parse.release(); // Release parser resources
 		} while (src.index < len);
 		return tclParserResults;
     }
@@ -1118,7 +1117,7 @@ public class Parser {
 	 * @throws TclException          
 	 */
 
-	static void eval2(Interp interp,
+	public static void eval2(Interp interp,
 			char[] script_array,
 			int script_index, 
 			int numChars,
@@ -2425,14 +2424,14 @@ public class Parser {
 	// operator's operands. NumComponents is
 	// always 0.
 
-	static final int TCL_TOKEN_WORD = 1;
-	static final int TCL_TOKEN_SIMPLE_WORD = 2;
-	static final int TCL_TOKEN_TEXT = 4;
-	static final int TCL_TOKEN_BS = 8;
-	static final int TCL_TOKEN_COMMAND = 16;
-	static final int TCL_TOKEN_VARIABLE = 32;
-	static final int TCL_TOKEN_SUB_EXPR = 64;
-	static final int TCL_TOKEN_OPERATOR = 128;
+	public static final int TCL_TOKEN_WORD = 1;
+	public static final int TCL_TOKEN_SIMPLE_WORD = 2;
+	public static final int TCL_TOKEN_TEXT = 4;
+	public static final int TCL_TOKEN_BS = 8;
+	public static final int TCL_TOKEN_COMMAND = 16;
+	public static final int TCL_TOKEN_VARIABLE = 32;
+	public static final int TCL_TOKEN_SUB_EXPR = 64;
+	public static final int TCL_TOKEN_OPERATOR = 128;
 
 	// Parsing error types. On any parsing error, one of these values
 	// will be stored in the error field of the TclParse class.

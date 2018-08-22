@@ -2610,7 +2610,7 @@ public class Interp extends EventuallyFreed {
 	 *             on file errors
 	 */
 
-	private String readScriptFromFile(String s, String encoding) throws TclException {
+	public String readScriptFromFile(String s, String encoding) throws TclException {
 		File sourceFile;
 		FileChannel fchan = new FileChannel();
 		fchan.setEncoding(encoding);
